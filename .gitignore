@@ -1,0 +1,41 @@
+# .NET Core build artifacts
+bin/
+obj/
+out/
+
+# User-specific files
+.vs/
+.idea/
+
+# .NET Core local tool manifests
+tools/
+
+# ASP.NET Core Settings (optional)
+appsettings.Development.json
+
+# JetBrains Rider IDE files
+.idea/
+
+# Visual Studio for Mac files
+.vscode/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Node.js dependencies (for Angular)
+node_modules/
+
+# Angular build output
+/dist/
+/out-tsc/
+/tmp/
+
+# IDE-specific files
+.vscode/
+
+# System files
+.DS_Store
+Thumbs.db
