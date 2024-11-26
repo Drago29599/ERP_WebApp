@@ -1,0 +1,56 @@
+<div class="container">
+
+  <!-- Canvas fixed to the left, taking 30% of the width -->
+  <div id="myCanvas" class="left-canvas">
+    <!-- Curriculum Dropdown Button -->
+    <div class="dropdown">
+      <button class="dropbtn" style="font-size:20px">
+        <span>Curriculum Management</span>
+      </button>
+      <div class="dropdown-content">
+        <a routerLink="/home/admin-dashboard/curriculum/create-curriculum">Create Curriculum</a>
+        <a routerLink="/home/login-professor">All Curriculum</a>
+      </div>
+    </div>
+
+    <!-- ERP System Buttons -->
+    <div class="dropdown">
+      <button class="dropbtn" style="font-size:20px">
+        <span>Student Management</span>
+      </button>
+      <div class="dropdown-content">
+        <a routerLink="/home/student-list">Student List</a>
+        <a routerLink="/home/add-student">Add Student</a>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <button class="dropbtn" style="font-size:20px">
+        <span>Professor Management</span>
+      </button>
+      <div class="dropdown-content">
+        <a routerLink="/home/professor-list">Professor List</a>
+        <a routerLink="/home/add-professor">Add Professor</a>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <button class="dropbtn" style="font-size:20px">
+        <span>Course Management</span>
+      </button>
+      <div class="dropdown-content">
+        <a routerLink="/home/course-list">Course List</a>
+        <a routerLink="/home/add-course">Add Course</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right section that is scrollable -->
+  <div class="scrollable-content">
+    <div class="notificationBar">
+      <p>Notifications will be here</p>
+    </div>
+    <!-- Your content that will be scrollable -->
+    <router-outlet></router-outlet>
+  </div>
+</div>

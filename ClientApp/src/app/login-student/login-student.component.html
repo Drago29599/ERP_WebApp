@@ -1,0 +1,14 @@
+<p>login-student works!</p>
+<div class="main-container">
+  <div class="right-container"></div>
+  <div class="left-container">
+    <div class="student-login">
+      <p>Student Login</p>
+      <form #ngForm="ngForm" (ngSubmit)="onLogin()">
+        <input type="text" id="userName" class="form-control" name="userName" placeholder="Enter Email ID" [(ngModel)]="model.UserName" required />
+        <input type="password" id="password" class="form-control" name="password" placeholder="Enter Password" [(ngModel)]="model.Password" required />
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </div>
+</div>

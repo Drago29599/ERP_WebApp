@@ -1,0 +1,139 @@
+/* General styling */
+/* Make sure the component fills the entire width */
+:host {
+  display: block;
+  width: 100%; /* Ensure the component takes full width */
+  height: 100%; /* Ensure it takes full height */
+}
+
+.container {
+  width: 100%; /* Ensure internal containers take full width */
+  height: 100%; /* Ensure internal containers take full height */
+}
+
+form {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Form Labels */
+label {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 8px;
+  display: block;
+  color: #333;
+}
+
+/* Input fields */
+input[type="text"],
+mat-form-field {
+  width: 100%;
+}
+
+  input[type="text"]:focus,
+  mat-form-field input.mat-input-element:focus {
+    border-color: #007bff;
+  }
+
+.mat-form-field {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.mat-autocomplete-panel {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+/* Button styles */
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  button[disabled] {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+
+/* Subject List */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+  ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-radius: 4px;
+  }
+
+    ul li button {
+      padding: 5px 10px;
+      background-color: #e60000;
+      border: none;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+      ul li button:hover {
+        background-color: #cc0000;
+      }
+
+/* Read-only input field */
+input[readonly] {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+}
+
+.mat-form-field input[readonly] {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+}
+
+/* Header for Sections */
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  form {
+    padding: 15px;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  button {
+    width: 100%;
+    font-size: 18px;
+  }
+}

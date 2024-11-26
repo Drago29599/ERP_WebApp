@@ -1,0 +1,89 @@
+<form #curriculumForm="ngForm" (ngSubmit)="onSubmit()">
+  <!-- Curriculum Name -->
+  <div class="form-group">
+    <label for="curriculumName">Curriculum Name</label>
+    <input type="text"
+           id="curriculumName"
+           name="curriculumName"
+           class="form-control"
+           [(ngModel)]="curriculum.curriculumName"
+           required />
+  </div>
+
+  <!-- Branch Name -->
+  <div class="form-group">
+    <label for="branchName">Branch Name</label>
+    <input type="text"
+           id="branchName"
+           name="branchName"
+           class="form-control"
+           [(ngModel)]="curriculum.branch"
+           required />
+  </div>
+
+  <!-- Branch Name -->
+  <div class="form-group">
+    <label for="curriculumYearType">Year Type (e.g. FE / SE /TE )</label>
+    <input type="text"
+           id="curriculumYearType"
+           name="curriculumYearType"
+           class="form-control"
+           [(ngModel)]="curriculum.curriculumYearType"
+           required />
+  </div>
+
+  <!-- Mandatory Subjects -->
+  <div class="form-group">
+    <label for="mandatorySubjects">Mandatory Subjects (max 5)</label>
+    <mat-form-field>
+      <input type="text"
+             matInput
+             placeholder="Search Mandatory Subjects"
+             [matAutocomplete]="autoMandatory"
+             [(ngModel)]="selectedSubject"
+             required
+             [readonly]="isMandatorySubjectLimitReached" />
+      <mat-autocomplete #autoMandatory="matAutocomplete" (optionSelected)="onSubjectSelected($event, true)">
+        <mat-option *ngFor="let subject of availableSubjects" [value]="subject">
+          {{ subject.Subject }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+    <ul>
+      <li *ngFor="let subject of mandatorySubjects">
+        {{ subject.Subject }} (Mandatory)
+        <button type="button" (click)="removeSubject(subject.taggedSubId)">Remove</button>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Optional Subjects -->
+  <div class="form-group">
+    <label for="optionalSubjects">Optional Subjects (max 2)</label>
+    <mat-form-field>
+      <input type="text"
+             matInput
+             placeholder="Search Optional Subjects"
+             [matAutocomplete]="autoOptional"
+             [(ngModel)]="selectedSubject"
+             required
+             [readonly]="isOptionalSubjectLimitReached" />
+      <mat-autocomplete #autoOptional="matAutocomplete" (optionSelected)="onSubjectSelected($event, false)">
+        <mat-option *ngFor="let subject of availableSubjects" [value]="subject">
+          {{ subject.Subject }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+    <ul>
+      <li *ngFor="let subject of optionalSubjects">
+        {{ subject.Subject }} (Optional)
+        <button type="button" (click)="removeSubject(subject.taggedSubId)">Remove</button>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Submit Button -->
+  <button type="submit" class="btn btn-primary" [disabled]="curriculumForm.invalid || isLoading">
+    Create Curriculum
+  </button>
+</form>

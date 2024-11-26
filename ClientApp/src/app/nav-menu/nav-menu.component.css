@@ -1,0 +1,141 @@
+/* Container settings */
+.container {
+  position: relative;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+/* Navbar style */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: #f8f9fa;
+}
+
+/* Logo and text settings */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+  .navbar-brand img {
+    max-height: 80px;
+    margin-right: 20px;
+  }
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+  .logo-text p {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+
+/* Dropdown button styles */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background-color: #f8f9fa;
+  border: none;
+  cursor: pointer;
+  padding: 10px 15px;
+  font-size: 16px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+
+/* Flexbox styling for user details and logout button */
+.d-flex {
+  width: 100%;
+}
+
+.user-details {
+  font-size: 16px;
+  color: #333;
+}
+
+.logOutBtn {
+  display: flex;
+  align-items: center;
+}
+
+  .logOutBtn button {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+
+  .logOutBtn img {
+    height: 30px;
+    margin-right: 5px;
+  }
+
+/* Form input and search bar adjustments */
+.form-control {
+  max-width: 350px; /* Maximum width for the search bar */
+  width: 100%; /* Ensures search bar takes available space */
+}
+
+/* Style for the navbar toggler */
+.navbar-toggler {
+  margin-left: 10px;
+}
+
+/* Ensures the layout is correctly handled in smaller screen sizes */
+@media (max-width: 768px) {
+  .navbar-brand img {
+    max-height: 50px;
+  }
+
+  .dropdown-content {
+    min-width: 140px;
+  }
+
+  /* Adjust search bar and login section for smaller screens */
+  .d-flex {
+    flex-wrap: wrap;
+    justify-content: space-between; /* Distribute items evenly */
+  }
+
+  .form-control {
+    max-width: 250px;
+  }
+
+  .dropdown {
+    margin-left: 10px;
+  }
+}
