@@ -20,6 +20,12 @@ namespace LogInSingUpWebApp
 
         public void ConfigureServices(IServiceCollection services)
         {
+            // Add SPA (Single Page Application) services
+            services.AddSpaStaticFiles(configuration =>
+            {
+                configuration.RootPath = "ClientApp/dist";
+            });
+
             // Register IHttpClientFactory
             services.AddHttpClient();
 
@@ -98,6 +104,11 @@ namespace LogInSingUpWebApp
             }
 
             app.UseHttpsRedirection();
+            app.UseStaticFiles();
+            if (!env.IsDevelopment())
+            {
+                app.UseSpaStaticFiles();
+            }
             app.UseCookiePolicy();
             app.UseCors("corspolicy"); // Ensure CORS is enabled before authentication
             app.UseAuthentication();
