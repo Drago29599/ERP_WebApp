@@ -26,11 +26,20 @@
     <Folder Include="ClientApp\src\app\services\" />
   </ItemGroup>
 	<Target Name="PublishClientApp" AfterTargets="Build">
-		<Exec Command="npm install --prefix ClientApp" />
-		<Exec Command="npm run build --prefix ClientApp --prod" />
-		<MakeDir Directories="$(PublishDir)\ClientApp\dist" />
-		<Copy SourceFiles="ClientApp/dist/client-app/**/*" DestinationFolder="$(PublishDir)\ClientApp\dist" />
+		<Exec Command="npm install" WorkingDirectory="ClientApp" />
+		<Exec Command="npm run build --prod" WorkingDirectory="ClientApp" />
+		<!-- Step 2: Collect all files from Angular output -->
+		<ItemGroup>
+			<ClientAppFiles Include="ClientApp/dist/**/*.*" />
+		</ItemGroup>
+
+		<!-- Step 3: Ensure destination directory exists -->
+		<MakeDir Directories="$(PublishDir)/ClientApp/dist" />
+
+		<!-- Step 4: Copy files -->
+		<Copy SourceFiles="@(ClientAppFiles)" DestinationFolder="$(PublishDir)/ClientApp/dist" />
 	</Target>
+
 
 
 
