@@ -28,8 +28,10 @@
 	<Target Name="PublishClientApp" AfterTargets="Build">
 		<Exec Command="npm install --prefix ClientApp" />
 		<Exec Command="npm run build --prefix ClientApp --prod" />
-		<Copy SourceFiles="ClientApp/dist/**/*" DestinationFolder="$(PublishDir)\ClientApp\dist" />
+		<MakeDir Directories="$(PublishDir)\ClientApp\dist" />
+		<Copy SourceFiles="ClientApp/dist/client-app/**/*" DestinationFolder="$(PublishDir)\ClientApp\dist" />
 	</Target>
+
 
 
 </Project>
